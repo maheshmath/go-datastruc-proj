@@ -5,7 +5,7 @@ import (
 )
 
 func main() {
-	fmt.Print("Hello, World!")
+	fmt.Print("Hello, Map World!")
 
 	if 5 == 4 {
 		fmt.Println(true)
