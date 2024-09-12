@@ -6,9 +6,6 @@ import (
 )
 
 func main() {
-	person := entities.Person{
-		Name: "John",
-		Age:  30,
-	}
-	fmt.Println(person)
+	var person entities.Person
+	fmt.Printf("Name is %s and age is %d", person.GetName(), person.GetAge()) // Name is %s and age is {%d}", person.GetName(), person.GetAge())
 }
