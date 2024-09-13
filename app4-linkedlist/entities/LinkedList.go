@@ -12,6 +12,10 @@ func (node *Node) GetName() string {
 	return node.name
 }
 
+func (node *Node) GetAge() int {
+	return node.age
+}
+
 type LinkedList struct {
 	Head *Node
 }
@@ -51,4 +55,35 @@ func (l *LinkedList) PrintList() {
 		fmt.Println(currentNode.name, currentNode.age)
 		currentNode = currentNode.next
 	}
+}
+
+func (l *LinkedList) SearchNode(name string) *Node {
+	currentNode := l.Head
+	for currentNode != nil {
+		if currentNode.name == name {
+			return currentNode
+		}
+		currentNode = currentNode.next
+	}
+
+	return nil
+}
+
+func (l *LinkedList) ReverseList() {
+	currentNode := l.Head
+	if currentNode == nil {
+		return
+	}
+
+	l.reverse(currentNode)
+
+}
+
+func (l *LinkedList) reverse(node *Node) {
+	if node == nil {
+		return
+	}
+
+	l.reverse(node.next)
+	fmt.Println(node.name, node.age)
 }

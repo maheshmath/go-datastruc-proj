@@ -19,4 +19,9 @@ func main() {
 	linkedList.DeleteNode()
 
 	linkedList.PrintList()
+
+	node := linkedList.SearchNode("Vinanti")
+	fmt.Println(node.GetName(), node.GetAge())
+
+	linkedList.ReverseList()
 }
