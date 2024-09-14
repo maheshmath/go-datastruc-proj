@@ -23,5 +23,9 @@ func main() {
 	node := linkedList.SearchNode("Vinanti")
 	fmt.Println(node.GetName(), node.GetAge())
 
+	linkedList.DisplayReverseList()
+
 	linkedList.ReverseList()
+
+	linkedList.PrintList()
 }

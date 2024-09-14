@@ -69,21 +69,39 @@ func (l *LinkedList) SearchNode(name string) *Node {
 	return nil
 }
 
-func (l *LinkedList) ReverseList() {
+func (l *LinkedList) DisplayReverseList() {
 	currentNode := l.Head
 	if currentNode == nil {
 		return
 	}
 
-	l.reverse(currentNode)
+	l.traverse(currentNode)
 
 }
 
-func (l *LinkedList) reverse(node *Node) {
+func (l *LinkedList) traverse(node *Node) {
+	if node == nil {
+		return
+	}
+	l.traverse(node.next)
+	fmt.Println(node.name, node.age)
+}
+
+func (l *LinkedList) ReverseList() {
+	node := l.Head
 	if node == nil {
 		return
 	}
 
+	l.reverse(node)
+}
+
+func (l *LinkedList) reverse(node *Node) {
+	if node.next == nil {
+		l.Head = node.next
+		return
+	}
 	l.reverse(node.next)
-	fmt.Println(node.name, node.age)
+	node.next.next = node
+	node.next = nil
 }
