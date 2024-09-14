@@ -26,6 +26,8 @@ func main() {
 	linkedList.DisplayReverseList()
 
 	linkedList.ReverseList()
+	linkedList.PrintList()
 
+	linkedList.InsertAtPosition(3, "Rudra", 7)
 	linkedList.PrintList()
 }

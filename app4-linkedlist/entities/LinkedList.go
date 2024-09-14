@@ -105,3 +105,19 @@ func (l *LinkedList) reverse(node *Node) {
 	node.next.next = node
 	node.next = nil
 }
+
+func (l *LinkedList) InsertAtPosition(position int, name string, age int) {
+	newNode := Node{name, age, nil}
+	if l.Head == nil {
+		l.Head = &newNode
+		return
+	}
+
+	currentNode := l.Head
+	for index := 1; index < position-1; index++ {
+		currentNode = currentNode.next
+	}
+
+	currentNode.next = &newNode
+	newNode.next = currentNode.next
+}
