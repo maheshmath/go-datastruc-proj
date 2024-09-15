@@ -105,3 +105,47 @@ func (l *LinkedList) reverse(node *Node) {
 	node.next.next = node
 	node.next = nil
 }
+
+func (l *LinkedList) ReverseListUpdated() {
+	if l.Head == nil {
+		return
+	}
+
+	var prev *Node = nil
+	current := l.Head
+	var next *Node = nil
+
+	for current != nil {
+		next = current.next
+		current.next = prev
+		prev = current
+		current = next
+	}
+
+	l.Head = prev
+}
+
+func (l *LinkedList) InsertAtPosition(position int, name string, age int) {
+	newNode := &Node{name, age, nil}
+
+	// Insert at the head (position 1)
+	if position == 1 {
+		newNode.next = l.Head
+		l.Head = newNode
+		return
+	}
+
+	currentNode := l.Head
+	for index := 1; index < position-1 && currentNode != nil; index++ {
+		currentNode = currentNode.next
+	}
+
+	if currentNode == nil {
+		fmt.Println("Position out of bounds")
+		return
+	}
+
+	newNode.next = currentNode.next
+	currentNode.next = newNode
+
+}
